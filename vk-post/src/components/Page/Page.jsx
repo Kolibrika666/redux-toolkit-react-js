@@ -1,11 +1,15 @@
 import React from "react";
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
+import Posts from "./Sidebar/Posts/Posts";
 function Page() {
   return (
     <>
       <Header />
-      <Sidebar />
+      <main>
+        <Sidebar />
+        <Posts />
+      </main>
     </>
   );
 }

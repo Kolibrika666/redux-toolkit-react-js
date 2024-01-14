@@ -1,16 +1,24 @@
 import React from "react";
-export function Button({ value, onButtonClick }) {
-  return <button onClick={onButtonClick}>{value}</button>;
+export function Button({ value, onButtonClick, type }) {
+  return (
+    <button type={type} onClick={onButtonClick}>
+      {value}
+    </button>
+  );
 }
 
 export function ButtonLogin() {
-  return <Button value="вход" onClick={() => {}} />;
+  return <Button type="submit" value="вход" onClick={() => {}} />;
 }
 
 export function ButtonRegistration() {
-  return <Button value="регистрация" onClick={() => {}} />;
+  return <Button type="button" value="регистрация" onClick={() => {}} />;
 }
 
 export function ButtonHelp() {
-  return <Button value="помощь" onClick={() => {}} />;
+  return <Button type="button" value="помощь" onClick={() => {}} />;
+}
+
+export function ButtonDoPost({ onClick }) {
+  return <Button type="submit" value="Отправить" onClick={onClick} />;
 }

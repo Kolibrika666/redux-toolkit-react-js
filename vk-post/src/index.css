@@ -5,6 +5,10 @@ body {
   place-items: center;
 }
 
+main {
+  display: flex;
+}
+
 button {
   cursor: pointer;
 }
