@@ -4,3 +4,7 @@ body {
   box-sizing: border-box;
   place-items: center;
 }
+
+button {
+  cursor: pointer;
+}
