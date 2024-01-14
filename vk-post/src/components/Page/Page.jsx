@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "./Header";
-import Login from "./Login";
+import Header from "./Header/Header";
+import Sidebar from "./Sidebar/Sidebar";
 function Page() {
   return (
     <>
       <Header />
-      <Login />
+      <Sidebar />
     </>
   );
 }
