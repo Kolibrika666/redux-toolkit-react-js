@@ -19,6 +19,11 @@ export function ButtonHelp() {
   return <Button type="button" value="помощь" onClick={() => {}} />;
 }
 
-export function ButtonDoPost({ onClick }) {
-  return <Button type="submit" value="Отправить" onClick={onClick} />;
+export function ButtonDoPost({ onClick, disabled }) {
+  return (
+    <button disabled={disabled} type="submit" onClick={onClick}>
+      {" "}
+      Отправить
+    </button>
+  );
 }

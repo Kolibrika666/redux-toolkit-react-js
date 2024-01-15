@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
-import Posts from "./Sidebar/Posts/Posts";
+import PostList from "./Sidebar/Posts/Posts";
 function Page() {
   return (
     <>
       <Header />
       <main>
         <Sidebar />
-        <Posts />
+        <PostList />
       </main>
     </>
   );

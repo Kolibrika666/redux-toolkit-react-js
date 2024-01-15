@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import s from "./Posts.module.scss";
-import { Button, ButtonDoPost } from "../../Button";
-function Posts() {
+import { ButtonDoPost } from "../../Button";
+function PostList() {
   const [postText, setPostText] = useState("");
+  const [postList, setPostList] = useState([]);
 
   const doPost = () => {
     fetch(
@@ -16,19 +17,31 @@ function Posts() {
           "Content-Type": "application/json",
         },
       }
+    ).then((res) => {
+      console.log(res);
+      setPostText("");
+      getPosts();
+    });
+  };
+
+  const getPosts = () => {
+    fetch(
+      "https://vk-posts-data-base-default-rtdb.europe-west1.firebasedatabase.app/"
     )
-      .then((rez) => {
-        alert(rez);
-        return rez.json();
-      })
+      .then((res) => res.json())
       .then((data) => {
-        alert(data);
+        console.log(data);
+        const rezult = [];
+        for (const key in data) {
+          rezult.push({ id: key, text: data[key].text });
+        }
+        setPostList(rezult);
       });
   };
 
-  // useEffect(() => {
-  //   doPost();
-  // }, []);
+  useEffect(() => {
+    getPosts();
+  }, []);
 
   return (
     <div className={s.posts}>
@@ -40,10 +53,15 @@ function Posts() {
           value={postText}
           onChange={(e) => setPostText(e.target.value)}
         />
-        <ButtonDoPost onClick={doPost} />
+        <ButtonDoPost disabled={!!postText} onClick={doPost} />
       </label>
+      <ul>
+        {postList.map((item) => (
+          <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
     </div>
   );
 }
 
-export default Posts;
+export default PostList;
