@@ -1,0 +1,13 @@
+
+.catalogItem {
+  max-width: 280px;
+  border-radius: 20px;
+  border: 1px solid grey;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+.catalogItem > img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
