@@ -2,19 +2,21 @@
 // import ForwardCounter from "./components/Counters/ForwardCounter"
 // import CounterWrapper from "./hocs/CounterWrapper"
 // import useCounter from "./hooks/useCounter"
-// import Header from "./components/Header"
-// import Catalog from "./pages/catalog/App"
+import Header from "./components/Header"
+import Catalog from "./pages/catalog/App"
 
-import { useSelector } from "react-redux"
+// import { useDispatch, useSelector } from "react-redux"
+// import { decrement, increment } from "./store/counter/counterSlice"
 
 function App() {
   // const count = useCounter()
   // const reverseCount = useCounter("decrement")
-  const count = useSelector( state => state.counter.value)
+  // const count = useSelector( state => state.counter.value)
+  // const dispatch = useDispatch()
   return (
     <>  
-      {/* <Header /> */}
-      {/* <Catalog /> */}
+      <Header />
+      <Catalog />
       {/* <ForwardCounter />
       <BackwardCounter /> */}
       
@@ -25,11 +27,11 @@ function App() {
         <span>{reverseCount}</span>
       </CounterWrapper> */}
 
-      <div className="counter">
+      {/* <div className="counter">
         <p>{count}</p>
       </div>
-      <button>-</button>
-      <button>+</button>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(decrement())}>-</button> */}
       
     </>
   ) 

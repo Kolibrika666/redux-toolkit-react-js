@@ -5,7 +5,7 @@ const Catalog = () => {
     <section>
       <h2>Catalog</h2>
         {catalogData.map( item => (
-          <CatalogItem key={item.img} img={item.img} text={item.name} />
+          <CatalogItem key={item.id} id={item.id} img={item.img} text={item.name} />
         ))}     
     </section>
   );
@@ -14,10 +14,10 @@ const Catalog = () => {
 export default Catalog;
 
 const catalogData = [
-  {name: "Фен", img: "https://www.zap.md/sites/default/files/panasonic-eh-na65-k865.png"},
-  {name: "Утюг", img: "https://cdn.karaca.com/image/data/tefal/2014/9640.png"},
-  {name: "Видеокарта", img: "https://images.nvidia.com/aem-dam/Solutions/geforce/news/geforce-rtx-2070-custom-card-roundup/MSI-GeForce-RTX-2070-Gaming-Z-8G.png"},
-  {name: "Гантеля", img: "https://pngimg.com/uploads/dumbbell/dumbbell_PNG102650.png"},
+  {id: 1, name: "Фен", img: "https://www.zap.md/sites/default/files/panasonic-eh-na65-k865.png"},
+  {id: 2, name: "Утюг", img: "https://cdn.karaca.com/image/data/tefal/2014/9640.png"},
+  {id: 3, name: "Видеокарта", img: "https://images.nvidia.com/aem-dam/Solutions/geforce/news/geforce-rtx-2070-custom-card-roundup/MSI-GeForce-RTX-2070-Gaming-Z-8G.png"},
+  {id: 4, name: "Гантеля", img: "https://pngimg.com/uploads/dumbbell/dumbbell_PNG102650.png"},
 ]
 
 
