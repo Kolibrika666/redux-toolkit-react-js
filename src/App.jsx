@@ -2,8 +2,10 @@
 // import ForwardCounter from "./components/Counters/ForwardCounter"
 // import CounterWrapper from "./hocs/CounterWrapper"
 // import useCounter from "./hooks/useCounter"
-import Header from "./components/Header"
-import Catalog from "./pages/catalog/App"
+// import Header from "./components/Header"
+// import Catalog from "./pages/catalog/App"
+
+import LoginPage from "./pages/login/App"
 
 // import { useDispatch, useSelector } from "react-redux"
 // import { decrement, increment } from "./store/counter/counterSlice"
@@ -15,8 +17,9 @@ function App() {
   // const dispatch = useDispatch()
   return (
     <>  
-      <Header />
-      <Catalog />
+      {/* <Header /> */}
+      {/* <Catalog /> */}
+      <LoginPage />
       {/* <ForwardCounter />
       <BackwardCounter /> */}
       
