@@ -2,8 +2,9 @@
 // import ForwardCounter from "./components/Counters/ForwardCounter"
 // import CounterWrapper from "./hocs/CounterWrapper"
 // import useCounter from "./hooks/useCounter"
-// import Header from "./components/Header"
-// import Catalog from "./pages/catalog/App"
+import Header from "./components/Header"
+import WithAuthComponent from "./hocs/WithAuthComponent"
+import Catalog from "./pages/catalog/App"
 
 import LoginPage from "./pages/login/App"
 
@@ -16,13 +17,15 @@ function App() {
   // const count = useSelector( state => state.counter.value)
   // const dispatch = useDispatch()
   return (
-    <>  
-      {/* <Header /> */}
-      {/* <Catalog /> */}
-      <LoginPage />
+    <>
+      <Header />
+      <WithAuthComponent>
+        <Catalog />
+      </WithAuthComponent>
+      {/* <LoginPage /> */}
       {/* <ForwardCounter />
       <BackwardCounter /> */}
-      
+
       {/* <CounterWrapper>
         <span>{count}</span>
       </CounterWrapper>
@@ -35,9 +38,9 @@ function App() {
       </div>
       <button onClick={() => dispatch(increment())}>+</button>
       <button onClick={() => dispatch(decrement())}>-</button> */}
-      
+
     </>
-  ) 
+  )
 }
 
 export default App
