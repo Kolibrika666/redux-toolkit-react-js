@@ -2,11 +2,13 @@
 // import ForwardCounter from "./components/Counters/ForwardCounter"
 // import CounterWrapper from "./hocs/CounterWrapper"
 // import useCounter from "./hooks/useCounter"
-import Header from "./components/Header"
-import WithAuthComponent from "./hocs/WithAuthComponent"
-import Catalog from "./pages/catalog/App"
+// import Header from "./components/Header"
+// import WithAuthComponent from "./hocs/WithAuthComponent"
+// import Catalog from "./pages/catalog/App"
 
-import LoginPage from "./pages/login/App"
+import InfiniteScroll from "./components/InfiniteScroll/App"
+
+// import LoginPage from "./pages/login/App"
 
 // import { useDispatch, useSelector } from "react-redux"
 // import { decrement, increment } from "./store/counter/counterSlice"
@@ -18,10 +20,10 @@ function App() {
   // const dispatch = useDispatch()
   return (
     <>
-      <Header />
+      {/* <Header />
       <WithAuthComponent>
         <Catalog />
-      </WithAuthComponent>
+      </WithAuthComponent> */}
       {/* <LoginPage /> */}
       {/* <ForwardCounter />
       <BackwardCounter /> */}
@@ -38,7 +40,7 @@ function App() {
       </div>
       <button onClick={() => dispatch(increment())}>+</button>
       <button onClick={() => dispatch(decrement())}>-</button> */}
-
+      <InfiniteScroll />
     </>
   )
 }
