@@ -1,47 +1,31 @@
-// import BackwardCounter from "./components/Counters/BackwardCounter"
-// import ForwardCounter from "./components/Counters/ForwardCounter"
-// import CounterWrapper from "./hocs/CounterWrapper"
-// import useCounter from "./hooks/useCounter"
-// import Header from "./components/Header"
-// import WithAuthComponent from "./hocs/WithAuthComponent"
-// import Catalog from "./pages/catalog/App"
-
+import { Box, Button, Paper, Typography } from "@mui/material"
+import { useDispatch, useSelector } from "react-redux"
+import { clear, increment } from "./store/likes/likesSlice"
 import InfiniteScroll from "./components/InfiniteScroll/App"
 
-// import LoginPage from "./pages/login/App"
-
-// import { useDispatch, useSelector } from "react-redux"
-// import { decrement, increment } from "./store/counter/counterSlice"
-
 function App() {
-  // const count = useCounter()
-  // const reverseCount = useCounter("decrement")
-  // const count = useSelector( state => state.counter.value)
-  // const dispatch = useDispatch()
+  const likesAmount = useSelector(store => store.likes.likesAmount)
+  const dispatch = useDispatch()
+
+  const handleLike = () => {
+    dispatch(increment())
+    window.scrollBy(0, 200)
+  }
+  const handleClear = () => {
+    dispatch(clear())
+  }
   return (
-    <>
-      {/* <Header />
-      <WithAuthComponent>
-        <Catalog />
-      </WithAuthComponent> */}
-      {/* <LoginPage /> */}
-      {/* <ForwardCounter />
-      <BackwardCounter /> */}
-
-      {/* <CounterWrapper>
-        <span>{count}</span>
-      </CounterWrapper>
-      <CounterWrapper>
-        <span>{reverseCount}</span>
-      </CounterWrapper> */}
-
-      {/* <div className="counter">
-        <p>{count}</p>
-      </div>
-      <button onClick={() => dispatch(increment())}>+</button>
-      <button onClick={() => dispatch(decrement())}>-</button> */}
-      <InfiniteScroll />
-    </>
+    <Paper elevation={0}>
+      
+      <Box m={3}>
+        <Typography variant="h1">{likesAmount}</Typography>
+        <Button onClick={handleLike} variant="outlined">Like</Button>
+        <Button onClick={handleClear} variant="outlined">Clear</Button>
+      </Box>
+      <Box>
+        <InfiniteScroll />
+      </Box>
+    </Paper>
   )
 }
 
