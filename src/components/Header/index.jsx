@@ -6,6 +6,7 @@ import { LogOut } from '../../store/auth/authSlice';
 
 const Header = () => {
   const cartItems = useSelector(state => state.cart.products)
+  const likesItems = useSelector(state => state.likesItem.products)
   const userName = useSelector(state => state.auth.userName)
   const dispatch = useDispatch()
 
@@ -18,6 +19,7 @@ const Header = () => {
         <Box>
           <Box>
             <LikeIcon />
+            <span style={{ fontSize: "40px" }}>{likesItems.length}</span>
           </Box>
           <Box>
             <CartIcon />
