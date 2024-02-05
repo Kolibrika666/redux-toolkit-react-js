@@ -1,10 +1,10 @@
 import React from "react";
-import Page from "./components/Page/Page";
+import VKPosts from "./components/Page/VKPosts";
 
 function App() {
   return (
     <>
-      <Page />
+      <VKPosts />
     </>
   );
 }

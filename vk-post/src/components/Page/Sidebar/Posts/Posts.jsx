@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
 import s from "./Posts.module.scss";
-import { ButtonDoPost } from "../../Button";
+import Post from "./Post";
 function PostList() {
   const [postText, setPostText] = useState("");
   const [postList, setPostList] = useState([]);
+  const [like, setLike] = useState(0);
+
+  const date = "";
 
   const doPost = () => {
+    console.log(postText);
     fetch(
-      "https://vk-posts-data-base-default-rtdb.europe-west1.firebasedatabase.app/",
+      "https://vk-posts-data-base-default-rtdb.europe-west1.firebasedatabase.app/posts.json",
       {
         method: "POST",
         body: JSON.stringify({
+          name: "Name",
           text: postText,
+          date: new Date().toDateString(),
+          likes: 0,
         }),
         headers: {
           "Content-Type": "application/json",
@@ -26,15 +33,22 @@ function PostList() {
 
   const getPosts = () => {
     fetch(
-      "https://vk-posts-data-base-default-rtdb.europe-west1.firebasedatabase.app/"
+      "https://vk-posts-data-base-default-rtdb.europe-west1.firebasedatabase.app/posts.json"
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         const rezult = [];
         for (const key in data) {
-          rezult.push({ id: key, text: data[key].text });
+          rezult.push({
+            id: key,
+            text: data[key].text,
+            date: data[key].date,
+            name: data[key].name,
+            likes: data[key].likes,
+          });
         }
+
         setPostList(rezult);
       });
   };
@@ -53,13 +67,13 @@ function PostList() {
           value={postText}
           onChange={(e) => setPostText(e.target.value)}
         />
-        <ButtonDoPost disabled={!!postText} onClick={doPost} />
+        <button type="submit" onClick={doPost}>
+          Отправить
+        </button>
       </label>
-      <ul>
-        {postList.map((item) => (
-          <li key={item.id}>{item.text}</li>
-        ))}
-      </ul>
+      {postList.map((item) => (
+        <Post id={item.id} />
+      ))}
     </div>
   );
 }
